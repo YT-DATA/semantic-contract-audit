@@ -1,0 +1,58 @@
+{
+  "change_count": 5,
+  "changes": [
+    {
+      "after": [
+        "customer_id",
+        "order_date"
+      ],
+      "before": [
+        "order_date",
+        "order_id"
+      ],
+      "field": "grain",
+      "kind": "changed",
+      "metric": "net_revenue"
+    },
+    {
+      "after": "AUD",
+      "before": "USD",
+      "field": "currency",
+      "kind": "changed",
+      "metric": "net_revenue"
+    },
+    {
+      "after": "status IN ('settled', 'pending')",
+      "before": "status = 'settled'",
+      "field": "filter",
+      "kind": "changed",
+      "metric": "net_revenue"
+    },
+    {
+      "after": "Australia/Melbourne",
+      "before": "UTC",
+      "field": "timezone",
+      "kind": "changed",
+      "metric": "net_revenue"
+    },
+    {
+      "after": {
+        "customer": {
+          "cardinality": "many_to_many",
+          "condition": "orders.customer_id = customers.id"
+        }
+      },
+      "before": {
+        "customer": {
+          "cardinality": "many_to_one",
+          "condition": "orders.customer_id = customers.id"
+        }
+      },
+      "field": "joins",
+      "kind": "changed",
+      "metric": "net_revenue"
+    }
+  ],
+  "schema_version": 1,
+  "status": "review_required"
+}

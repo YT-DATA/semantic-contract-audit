@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "metrics": {
+    "net_revenue": {
+      "grain": ["order_id", "order_date"],
+      "unit": "currency",
+      "currency": "USD",
+      "aggregation": "sum",
+      "expression": "gross_amount - refunded_amount",
+      "filter": "status = 'settled'",
+      "timezone": "UTC",
+      "joins": {
+        "customer": {
+          "cardinality": "many_to_one",
+          "condition": "orders.customer_id = customers.id"
+        }
+      }
+    }
+  }
+}
